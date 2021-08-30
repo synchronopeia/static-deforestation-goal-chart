@@ -1,0 +1,26 @@
+{
+  "name": "038-034-013a-static_deforestation_goal_chart",
+  "version": "0.1.0",
+  "description": "Annual Deforestation Rate Charts (Static)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config index.mjs",
+    "script:create-data": "node -r dotenv/config scripts/create-data.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "D. Anderson",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "3.15.0"
+  },
+  "dependencies": {
+    "csv-parse": "4.16.2",
+    "csv-stringify": "5.6.4",
+    "d3-dsv": "3.0.1",
+    "debug": "4.3.2",
+    "dotenv": "10.0.0",
+    "jsonfile": "6.1.0",
+    "jsonpath-plus": "6.0.1",
+    "lodash.camelcase": "4.3.0"
+  }
+}

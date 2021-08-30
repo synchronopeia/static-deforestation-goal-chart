@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+private/
+logs/
+scripts/
+npm-debug.log
+yarn-error.log

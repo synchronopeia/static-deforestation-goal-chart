@@ -1,0 +1,36 @@
+ID,Name,Country ID,Country Name,Country Lang,Country Currency,Country Subunit Designation,Country Subunit Designation Plural
+BR-AC,Acre,BR,Brazil,pt,BRL,state,states
+BR-AP,Amapá,BR,Brazil,pt,BRL,state,states
+BR-AM,Amazonas,BR,Brazil,pt,BRL,state,states
+BR-MA,Maranhão,BR,Brazil,pt,BRL,state,states
+BR-MT,Mato Grosso,BR,Brazil,pt,BRL,state,states
+BR-PA,Pará,BR,Brazil,pt,BRL,state,states
+BR-RO,Rondônia,BR,Brazil,pt,BRL,state,states
+BR-RR,Roraima,BR,Brazil,pt,BRL,state,states
+BR-TO,Tocantins,BR,Brazil,pt,BRL,state,states
+CO-CAQ,Caquetá,CO,Colombia,es,COP,state,states
+EC-Y,Pastaza,EC,Ecuador,es,USD,state,states
+ID-AC,Aceh,ID,Indonesia,id,IDR,province,provinces
+ID-KT,Central Kalimantan,ID,Indonesia,id,IDR,province,provinces
+ID-KI,East Kalimantan,ID,Indonesia,id,IDR,province,provinces
+ID-KU,North Kalimantan,ID,Indonesia,id,IDR,province,provinces
+ID-KB,West Kalimantan,ID,Indonesia,id,IDR,province,provinces
+ID-PA,Papua,ID,Indonesia,id,IDR,province,provinces
+ID-PB,West Papua,ID,Indonesia,id,IDR,province,provinces
+CI-BELIER,Bélier,CI,Ivory Coast,fr,CFA Fran,region,regions
+CI-CAVALLY,Cavally,CI,Ivory Coast,fr,CFA Fran,region,regions
+MX-CAM,Campeche,MX,Mexico,es,MXN,state,states
+MX-CHP,Chiapas,MX,Mexico,es,MXN,state,states
+MX-JAL,Jalisco,MX,Mexico,es,MXN,state,states
+MX-OAX,Oaxaca,MX,Mexico,es,MXN,state,states
+MX-ROO,Quintana Roo,MX,Mexico,es,MXN,state,states
+MX-TAB,Tabasco,MX,Mexico,es,MXN,state,states
+MX-YUC,Yucatán,MX,Mexico,es,MXN,state,states
+NG-CR,Cross River State,NG,Nigeria,en,NGN,state,states
+PE-AMA,Amazonas,PE,Peru,es,PEN,region,regions
+PE-HUC,Huánuco,PE,Peru,es,PEN,region,regions
+PE-LOR,Loreto,PE,Peru,es,PEN,region,regions
+PE-MDD,Madre de Dios,PE,Peru,es,PEN,region,regions
+PE-PIU,Piura,PE,Peru,es,PEN,region,regions
+PE-SAM,San Martín,PE,Peru,es,PEN,region,regions
+PE-UCA,Ucayali,PE,Peru,es,PEN,region,regions
