@@ -14,7 +14,7 @@
 ### Generate Figures
 
 - [x] Bootstrap the project
-- [ ] generate a blank SVG for each jurisdiction
+- [x] generate a blank SVG for each jurisdiction
 - [ ] create a webpage to display all (blank) SVG's
 - [ ] display the axes
 - [ ] display "annual-deforestation-rate" RV as points
@@ -36,3 +36,5 @@ Client wishes to create an overlay plot with "year" as abscissa and "annual defo
 1. "deforestation rate baseline"
 2. "deforestation rate goal" as regression line
 3. projection of "deforestation rate goal" beyond 2017 
+
+connected scatterplot
