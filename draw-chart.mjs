@@ -2,15 +2,15 @@ import debugFn from 'debug';
 import { JSDOM } from 'jsdom';
 import * as d3 from "d3";
 
+const debug = debugFn('lib:draw-chart');
+
 const width = 720;
 const height = 540
-
-const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
 
 // const width = 960;
 // const height = 720;
 
-const debug = debugFn('lib:draw-chart');
+const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
 
 const drawChart = (props) => {
     const {

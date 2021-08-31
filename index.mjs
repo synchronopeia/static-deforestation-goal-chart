@@ -3,7 +3,7 @@ import debugFn from 'debug';
 
 import csvReadDefs from './lib/csv-read-defs.mjs';
 import csvReadRecs from './lib/csv-read-recs.mjs';
-import drawChart from './lib/draw-chart.mjs';
+import drawChart from './draw-chart.mjs';
 
 const debug = debugFn('index');
 
