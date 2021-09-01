@@ -22,7 +22,7 @@ const drawChart = (props) => {
     } = props;
     
     // note that recs stores array indexes as strings so we use Number() to get the integer year instead 
-    const deforestationRateArray = extractArray(recs, 'annual-deforestation-rate').map(pair => [Number(pair[0]), pair[1]]);
+    const deforestationRateArray = extractArray(recs, 'deforestation-rate').map(pair => [Number(pair[0]), pair[1]]);
 
     const n = deforestationRateArray.length;
     
