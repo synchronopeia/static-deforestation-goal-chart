@@ -1,2 +1,4 @@
 ID,Namespace,Type,Is Array,Level of Measurement,Is Derived,Is Missing Allowed
 annual-deforestation-rate,jurisdiction,integer,yes,interval,no,yes
+deforestation-rate-reference,jurisdiction,integer,yes,interval,no,yes
+deforestation-rate-goal,jurisdiction,integer,yes,interval,no,yes
