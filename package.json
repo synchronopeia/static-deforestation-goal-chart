@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config index.mjs",
+    "serve": "webpack serve",
     "script:update-data": "node -r dotenv/config scripts/update-data.mjs",
+    "script:update-index": "node -r dotenv/config scripts/update-index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "D. Anderson",
   "license": "ISC",
   "devDependencies": {
-    "ava": "3.15.0"
+    "ava": "3.15.0",
+    "webpack-cli": "4.8.0",
+    "webpack-dev-server": "4.1.0"
   },
   "dependencies": {
     "csv-parse": "4.16.2",
