@@ -15,6 +15,9 @@ const endYear = 2020;
 
 const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
 
+const symbolGenerator = d3.symbol('diamond', 32);
+	// .size(100);
+
 const drawChart = (props) => {
     const {
         jurisdictionDef,
@@ -23,6 +26,10 @@ const drawChart = (props) => {
     
     // note that recs stores array indexes as strings so we use Number() to get the integer year instead 
     const deforestationRateArray = extractArray(recs, 'deforestation-rate').map(pair => [Number(pair[0]), pair[1]]);
+
+    const referenceItem = extractArray(recs, 'deforestation-rate-reference').map(pair => [Number(pair[0]), pair[1]])[0];
+
+    const goalItem = extractArray(recs, 'deforestation-rate-goal').map(pair => [Number(pair[0]), pair[1]])[0];
 
     const n = deforestationRateArray.length;
     
@@ -66,6 +73,16 @@ const drawChart = (props) => {
         .x(d => x(d[0]))
         .y(d => y(d[1]));
 
+    // const referenceLine = d3.line()
+    //     // .defined(d => (d[1] !== null))
+    //     .x(d => x(d[0]))
+    //     .y(d => y(d[1]));
+
+    // const regressionLine = d3.line()
+    //     .curve(d3.curveCatmullRom)
+    //     .x(d => x(d[0]))
+    //     .y(d => y(d[1]));
+
     svg.append('rect')
         .attr('width', width)
         .attr('height', height)
@@ -74,6 +91,22 @@ const drawChart = (props) => {
     svg.append('g').call(xAxis);
     
     svg.append('g').call(yAxis);
+
+    svg.append('line')
+        .attr('x1', x(referenceItem[0]))
+        .attr('y1', y(referenceItem[1]))
+        .attr('x2', x(deforestationRateArray[0][0]))
+        .attr('y2', y(referenceItem[1]))
+        .style('stroke', 'steelblue')
+        .style('stroke-width', 2);
+
+    svg.append('line')
+        .attr('x1', x(referenceItem[0]))
+        .attr('y1', y(referenceItem[1]))
+        .attr('x2', x(goalItem[0]))
+        .attr('y2', y(goalItem[1]))
+        .style('stroke', 'green')
+        .style('stroke-width', 2);
 
     svg.append('path')
       .datum(deforestationRateArray)
@@ -107,6 +140,20 @@ const drawChart = (props) => {
             .attr('cy', d => y(d[1]))
             .attr('r', 4);
 
+    svg.append('path')
+        .attr('transform', `translate(${x(goalItem[0])},${y(goalItem[1])})`)
+        .attr('d', `${d3.symbol(d3.symbolDiamond, 250)()}`)
+        .attr('fill', '#ffffff')
+
+    svg.append('path')
+        .attr('transform', `translate(${x(goalItem[0])},${y(goalItem[1])})`)
+        .attr('d', `${d3.symbol(d3.symbolDiamond, 150)()}`)
+        .attr('fill', '#33cc33')
+
+    //     // .join('path')
+    //     .attr('d', symbolGenerator.type('symbolDiamond'))
+
+    // debug(d3.symbols[0])
     return outerSvg.node().outerHTML;
 };
 
