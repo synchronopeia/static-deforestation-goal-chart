@@ -1,6 +1,6 @@
 import debugFn from 'debug';
 import { JSDOM } from 'jsdom';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 import extractArray from './lib/extract-array.mjs';
 
@@ -28,11 +28,11 @@ const drawChart = (props) => {
     
     const outerSvg = d3.select(dom.window.document.body).append('svg')
         .attr('xmlns', 'http://www.w3.org/2000/svg')
-        .attr("width", width)
-        .attr("height", height)
+        .attr('width', width)
+        .attr('height', height)
         .attr('viewBox', [0, 0, width, height]);
     
-    const svg = outerSvg.append("g")
+    const svg = outerSvg.append('g')
         .attr('fill', 'none')
         .attr('stroke-linecap', 'round');
 
@@ -52,13 +52,13 @@ const drawChart = (props) => {
         .nice();
 
     const xAxis = (g) => g
-        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .attr('transform', `translate(0,${height - margin.bottom})`)
         .call(d3.axisBottom(x).tickFormat(t => String(t)))
     
     const yAxis = (g) => g
-        .attr("transform", `translate(${margin.left},0)`)
-        .call(d3.axisLeft(y).ticks(null, "s"))
-        .call(g => g.select(".domain").remove())
+        .attr('transform', `translate(${margin.left},0)`)
+        .call(d3.axisLeft(y).ticks(null, 's'))
+        .call(g => g.select('.domain').remove())
 
     const line = d3.line()
         .curve(d3.curveCatmullRom)
@@ -67,45 +67,45 @@ const drawChart = (props) => {
         .y(d => y(d[1]));
 
     svg.append('rect')
-        .attr("width", width)
-        .attr("height", height)
+        .attr('width', width)
+        .attr('height', height)
         .attr('fill', '#ffffff')
 
-    svg.append("g").call(xAxis);
+    svg.append('g').call(xAxis);
     
-    svg.append("g").call(yAxis);
+    svg.append('g').call(yAxis);
 
-    svg.append("path")
+    svg.append('path')
       .datum(deforestationRateArray)
-      .attr("fill", "none")
-      .attr("stroke", "black")
-      .attr("stroke-width", 2.5)
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-    //   .attr("stroke-dasharray", `0,${l}`)
-      .attr("d", line)
+      .attr('fill', 'none')
+      .attr('stroke', 'black')
+      .attr('stroke-width', 2.5)
+      .attr('stroke-linejoin', 'round')
+      .attr('stroke-linecap', 'round')
+    //   .attr('stroke-dasharray', `0,${l}`)
+      .attr('d', line)
 
-      svg.append("g")
-        // .attr("stroke", "steelblue")
-        // .attr("stroke-width", 1.5)
-        .attr("fill", "#ffffff")
-        .selectAll("circle")
+      svg.append('g')
+        // .attr('stroke', 'steelblue')
+        // .attr('stroke-width', 1.5)
+        .attr('fill', '#ffffff')
+        .selectAll('circle')
         .data(deforestationRateArray.filter(d => d[1] !== null))
-        .join("circle")
-            .attr("cx", d => x(d[0]))
-            .attr("cy", d => y(d[1]))
-            .attr("r", 8);
+        .join('circle')
+            .attr('cx', d => x(d[0]))
+            .attr('cy', d => y(d[1]))
+            .attr('r', 8);
 
-    svg.append("g")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 2)
-        .attr("fill", "none")
-        .selectAll("circle")
+    svg.append('g')
+        .attr('stroke', 'steelblue')
+        .attr('stroke-width', 2)
+        .attr('fill', 'none')
+        .selectAll('circle')
         .data(deforestationRateArray.filter(d => d[1] !== null))
-        .join("circle")
-            .attr("cx", d => x(d[0]))
-            .attr("cy", d => y(d[1]))
-            .attr("r", 4);
+        .join('circle')
+            .attr('cx', d => x(d[0]))
+            .attr('cy', d => y(d[1]))
+            .attr('r', 4);
 
     return outerSvg.node().outerHTML;
 };
