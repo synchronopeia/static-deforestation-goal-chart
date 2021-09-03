@@ -60,6 +60,12 @@ const drawChart = (props) => {
         .call(d3.axisLeft(y).ticks(null, "s"))
         .call(g => g.select(".domain").remove())
 
+    const line = d3.line()
+        .curve(d3.curveCatmullRom)
+        .defined(d => (d[1] !== null))
+        .x(d => x(d[0]))
+        .y(d => y(d[1]));
+
     svg.append('rect')
         .attr("width", width)
         .attr("height", height)
@@ -69,16 +75,37 @@ const drawChart = (props) => {
     
     svg.append("g").call(yAxis);
 
-    svg.append("g")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 1.5)
-        .attr("fill", "none")
+    svg.append("path")
+      .datum(deforestationRateArray)
+      .attr("fill", "none")
+      .attr("stroke", "black")
+      .attr("stroke-width", 2.5)
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+    //   .attr("stroke-dasharray", `0,${l}`)
+      .attr("d", line)
+
+      svg.append("g")
+        // .attr("stroke", "steelblue")
+        // .attr("stroke-width", 1.5)
+        .attr("fill", "#ffffff")
         .selectAll("circle")
-        .data(deforestationRateArray.filter(mItem => mItem[1] !== null))
+        .data(deforestationRateArray.filter(d => d[1] !== null))
         .join("circle")
             .attr("cx", d => x(d[0]))
             .attr("cy", d => y(d[1]))
-            .attr("r", 3);
+            .attr("r", 8);
+
+    svg.append("g")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 2)
+        .attr("fill", "none")
+        .selectAll("circle")
+        .data(deforestationRateArray.filter(d => d[1] !== null))
+        .join("circle")
+            .attr("cx", d => x(d[0]))
+            .attr("cy", d => y(d[1]))
+            .attr("r", 4);
 
     return outerSvg.node().outerHTML;
 };
